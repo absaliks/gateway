@@ -1,0 +1,8 @@
+.idea/
+.vscode/
+/gateway-webapp/node_modules/
+/gateway-webapp/src/assets/
+/gateway-webapp/package-lock.json
+
+*.iml
+target/**
