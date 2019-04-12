@@ -1,0 +1,14 @@
+<h3>NOTES</h3>
+<div class="x-centered">
+  <div class="form-group">
+    <mat-form-field>
+      <input matInput size="75" [(ngModel)]="title" placeholder="Note title" maxlength="75">
+    </mat-form-field>
+    <button mat-button (click)="addNote()">ADD</button>
+  </div>
+  <div class="note-list">
+    <div class="item" *ngFor="let note of notes">
+      <span>{{note.id}}. {{ note.title }}</span><i class="material-icons">delete</i>
+    </div>
+  </div>
+</div>

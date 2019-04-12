@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    preserveAspectRatio="xMaxYMax" height="100%" width="100%" viewbox="0 0 200 200" version="1.1">
+  <desc></desc>
+  <defs></defs>
+  <g id="star" fill="#000">
+    <path d="m 200,120 40,-100 40,100 -40,60 z"></path>
+    <path d="m 200,120 40,-100 40,100 -40,60 z" transform="matrix(0.309,0.9511,-0.9511,0.309,356.0472,-90.057)"></path>
+    <path d="m 200,120 40,-100 40,100 -40,60 z" transform="matrix(-0.809,0.5878,-0.5878,-0.809,551.7211,220.7349)"></path>
+    <path d="m 200,120 40,-100 40,100 -40,60 z" transform="matrix(-0.809,-0.5878,0.5878,-0.809,316.607,502.8719)"></path>
+    <path d="m 200,120 40,-100 40,100 -40,60 z" transform="matrix(0.309,-0.9511,0.9511,0.309,-24.3754,366.4502)"></path>
+  </g>
+  <animateTransform
+    xlink:href="#star"
+    attributeName="transform"
+    attributeType="XML"
+    type="rotate"
+    from="0 240 200"
+    to="72 240 200"
+    dur="15s"
+    repeatCount="indefinite"
+  />
+</svg>

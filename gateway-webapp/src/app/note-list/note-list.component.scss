@@ -1,0 +1,20 @@
+
+.note-list {
+  display: flex;
+  flex-direction: column;
+
+  .item {
+    display: flex;
+    align-items: center;
+
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.x-centered {
+  margin: 0 auto;
+}
