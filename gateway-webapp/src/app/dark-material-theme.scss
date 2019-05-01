@@ -6,14 +6,7 @@
 // hue. Available color palettes: https://material.io/design/color/
 $dark-primary: mat-palette($mat-gray);
 $dark-accent:  mat-palette($mat-amber, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
 $dark-warn:    mat-palette($mat-deep-orange);
 
-// Create the theme object (a Sass map containing all of the palettes).
 $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include angular-material-theme($dark-theme);

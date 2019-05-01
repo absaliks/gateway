@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { NoteService } from '../services/note.service';
-import { Note } from '../models/Note';
-import { MatSnackBar } from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {NoteService} from '../services/note.service';
+import {Note} from '../models/Note';
+import {MatSnackBar} from '@angular/material';
+import {Observable} from "rxjs";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-note-list',
@@ -12,12 +15,16 @@ import { MatSnackBar } from '@angular/material';
 export class NoteListComponent implements OnInit {
   static readonly ROUTER_PATH = 'notes';
 
+  isHandset$: Observable<boolean> =
+    this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
+
   title = '';
   notes: Note[] = [];
 
-  constructor(private service: NoteService, private snackBar: MatSnackBar) {
+  constructor(private breakpointObserver: BreakpointObserver,
+              private service: NoteService,
+              private snackBar: MatSnackBar) {
   }
-
 
   ngOnInit(): void {
     this.service.getNotes().subscribe(notes => this.notes = notes);
