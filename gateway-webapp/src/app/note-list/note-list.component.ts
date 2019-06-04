@@ -18,8 +18,8 @@ export class NoteListComponent implements OnInit {
   isHandset$: Observable<boolean> =
     this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
 
-  title = '';
   notes: Note[] = [];
+  title = '';
 
   constructor(private breakpointObserver: BreakpointObserver,
               private service: NoteService,

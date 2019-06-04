@@ -13,16 +13,19 @@ import {
   MatListModule,
   MatSidenavModule,
   MatSnackBarModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTreeModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {LayoutModule} from '@angular/cdk/layout';
+import {NotebookTreeComponent} from './notebook-tree/notebook-tree.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NoteListComponent
+    NoteListComponent,
+    NotebookTreeComponent
   ],
   imports: [
     AppRoutingModule,
@@ -38,7 +41,8 @@ import {LayoutModule} from '@angular/cdk/layout';
     MatIconModule,
     MatListModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTreeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

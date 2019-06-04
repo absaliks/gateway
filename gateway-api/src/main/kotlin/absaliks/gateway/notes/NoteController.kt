@@ -10,5 +10,7 @@ class NoteController(private val service: NoteService) {
     fun getNotes() = service.getNotes()
 
     @PostMapping
-    fun addNote(@RequestBody note: Note) = service.addNote(note)
+    fun addNote(@RequestBody note: Note) {
+        service.addNote(note)
+    }
 }

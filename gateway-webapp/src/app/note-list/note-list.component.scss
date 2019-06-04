@@ -1,7 +1,16 @@
-.drawer-container, .drawer {
+.container {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
+.drawer {
+  padding: 1em 1em 0;
+}
+
+.drawer-container {
+  flex-grow: 1;
+}
 
 .note-list {
   display: flex;
@@ -17,6 +26,10 @@
       text-overflow: ellipsis;
     }
   }
+}
+
+mat-tree-node {
+  min-height: 0;
 }
 
 .x-centered {
