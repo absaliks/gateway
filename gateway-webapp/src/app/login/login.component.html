@@ -1,0 +1,34 @@
+<!--
+  ~ Copyright (C) 2019  Shamil Absalikov
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+  <form class="inner-container" autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
+    <h2>Sign in</h2>
+    <mat-form-field>
+      <input matInput type="email" id="username" name="username" formControlName="username"
+             placeholder="Username" autofocus>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [type]="isPasswordVisible ? 'text' : 'password'" placeholder="Password"
+             id="password" name="password" formControlName="password" autocomplete="off">
+      <button type="button" id="show-hide-password" mat-icon-button matSuffix
+              aria-label="show/hide password" (click)="this.isPasswordVisible = !this.isPasswordVisible;">
+        <mat-icon>{{isPasswordVisible ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button type="submit" mat-button [disabled]="loginForm.invalid">Submit</button>
+  </form>
