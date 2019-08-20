@@ -15,27 +15,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+package absaliks.gateway.controller
 
-@Injectable({providedIn: 'root'})
-export class LoginService {
+import absaliks.gateway.model.AuthenticationRequest
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+import javax.validation.Valid
 
-  constructor(private httpClient: HttpClient) {
-  }
+@RestController
+@RequestMapping("/notes")
+class AuthenticationController(/*private val service: AuthenticationService*/) {
 
-  login(username: string, password: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    const model: LoginModel = {username, password};
-    return this.httpClient.post('http://localhost:8080/login', model, httpOptions);
-  }
-}
-
-interface LoginModel {
-  username: string,
-  password: string
+    @PostMapping
+    fun authenticate(@RequestBody @Valid request: AuthenticationRequest) {
+        // service.getNotes()
+    }
 }

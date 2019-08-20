@@ -15,27 +15,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+package absaliks.gateway.model
 
-@Injectable({providedIn: 'root'})
-export class LoginService {
+import javax.validation.constraints.NotEmpty
 
-  constructor(private httpClient: HttpClient) {
-  }
-
-  login(username: string, password: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    const model: LoginModel = {username, password};
-    return this.httpClient.post('http://localhost:8080/login', model, httpOptions);
-  }
-}
-
-interface LoginModel {
-  username: string,
-  password: string
-}
+data class AuthenticationRequest(
+    @NotEmpty val username: String,
+    @NotEmpty val password: String
+)

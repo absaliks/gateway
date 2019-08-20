@@ -15,27 +15,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+package absaliks.gateway.model
 
-@Injectable({providedIn: 'root'})
-export class LoginService {
+import javax.persistence.*
 
-  constructor(private httpClient: HttpClient) {
-  }
+@Entity
+@Table(name = "users")
+data class User(
 
-  login(username: string, password: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    const model: LoginModel = {username, password};
-    return this.httpClient.post('http://localhost:8080/login', model, httpOptions);
-  }
-}
-
-interface LoginModel {
-  username: string,
-  password: string
-}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Int?,
+    val username: String,
+    val password: String
+)

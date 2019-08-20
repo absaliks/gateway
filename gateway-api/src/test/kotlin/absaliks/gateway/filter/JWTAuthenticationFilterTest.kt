@@ -15,27 +15,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+package absaliks.gateway.filter
 
-@Injectable({providedIn: 'root'})
-export class LoginService {
+import io.jsonwebtoken.SignatureAlgorithm
+import io.jsonwebtoken.security.Keys
 
-  constructor(private httpClient: HttpClient) {
-  }
+import org.junit.jupiter.api.Test
+import java.security.Key
+import java.util.*
 
-  login(username: string, password: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    const model: LoginModel = {username, password};
-    return this.httpClient.post('http://localhost:8080/login', model, httpOptions);
-  }
-}
+internal class JWTAuthenticationFilterTest {
 
-interface LoginModel {
-  username: string,
-  password: string
+    @Test
+    fun successfulAuthentication() {
+        val key: Key = Keys.secretKeyFor(SignatureAlgorithm.HS512)
+        println(key.encoded.size)
+        println(Base64.getEncoder().encodeToString(key.encoded))
+    }
 }

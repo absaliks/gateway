@@ -28,7 +28,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class LoginComponent {
 
   loginForm = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', [Validators.required]),
     password: new FormControl('', Validators.required)
   });
   isPasswordVisible = false;
@@ -40,8 +40,8 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.loginService.login(
         this.loginForm.get('username').value,
-        this.loginForm.get('password').value)
-          .subscribe(result => console.log('Success', result));
+        this.loginForm.get('password').value
+      ).subscribe(result => console.log('Success', result));
     }
   }
 }
